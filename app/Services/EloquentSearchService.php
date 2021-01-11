@@ -20,6 +20,6 @@ class EloquentSearchService implements ISearchService
             $query->where($criterion['column'], $criterion['condition'], $criterion['value']);
         }
 
-        return $query->get();
+        return $query->orderBy('created_at', 'desc')->get();
     }
 }

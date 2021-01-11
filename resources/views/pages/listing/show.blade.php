@@ -19,7 +19,7 @@
                             <x-contact-seller-form></x-contact-seller-form>
                         </div>
                         <div class="col-span-3 bg-gray-200 p-10 text-gray-600 mt-4 border border-gray-100 shadow-md bg-opacity-95">
-                            <p class="mb-10">{{ $listing->description }}</p>
+                            <p class="mb-10 break-words">{{ $listing->description }}</p>
                             <p>Category {{ $listing->category_id }}</p>
                             <p>Contact Email {{ $listing->contact_email }}</p>
                             <p>Contact Phone {{ $listing->contact_phone  }}</p>
