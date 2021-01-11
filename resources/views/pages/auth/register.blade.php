@@ -33,7 +33,7 @@
                 </div>
                 <input type="submit" value="Register">
             </form>
-            <a href="{{ route('login') }}">Already have a account?</a>
+            <a href="{{ route('show-login') }}">Already have a account?</a>
         </div>
     </div>
 @endsection
