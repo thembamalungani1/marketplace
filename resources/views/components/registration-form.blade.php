@@ -2,7 +2,7 @@
     <div class="flex justify-center py-1">
         <x-logo></x-logo>
     </div>
-    @if($error = Session::get('error'))
+        @if($error = Session::get('error'))
         <x-alert message="{{ $error }}"></x-alert>
     @endif
     <form action="{{ route('create-registration') }}" method="post">

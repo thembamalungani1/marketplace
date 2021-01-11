@@ -7,6 +7,7 @@ namespace App\Services;
 use App\Contracts\IAuthenticationService;
 use App\Events\UserWasRegistered;
 use App\Events\UserWasSignedIn;
+use App\Events\UserWasSignedOut;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 

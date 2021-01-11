@@ -5,9 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Contracts\IAuthenticationService;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
-use Illuminate\Http\Request;
 
-class LoginController extends Controller
+class AuthController extends Controller
 {
     public function index()
     {
@@ -17,9 +16,15 @@ class LoginController extends Controller
     public function login(IAuthenticationService  $service, LoginRequest $request)
     {
         if ($service->attempt($request->only(['email', 'password']))){
-            return redirect()->back()->with('message', 'Login successful');
+            return redirect()->route('show-search');
         }
 
         return redirect()->back()->with('error', 'Incorrect login details');
+    }
+
+    public function logout(IAuthenticationService $service)
+    {
+        $service->signout();
+        return redirect()->route('show-search');
     }
 }

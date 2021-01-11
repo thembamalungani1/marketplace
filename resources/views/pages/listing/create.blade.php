@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="w-full flex justify-center p-10 align-middle mt-20 md:mt-0">
-        <div class="p-10 pt-0 bg-gray-50 shadow-lg text-gray-600">
+        <div class="p-10 pt-0 bg-gray-50 shadow-lg text-gray-600 w-1/2">
             @if($error = Session::get('error'))
                 <x-alert message="{{ $error }}"></x-alert>
             @endif
@@ -13,7 +13,12 @@
                     <x-form-input-box label="Title" name="title" id="title" placeholder="Title"></x-form-input-box>
                     <x-form-input-box label="Slug" name="slug" id="slug" placeholder="Slug"></x-form-input-box>
                     <x-form-input-box label="Price" name="price" id="price" placeholder="Price"></x-form-input-box>
-                    <x-form-input-box type="textarea" label="Description" name="description" id="description" placeholder="Description"></x-form-input-box>
+                    <div class="mb-4">
+                        <textarea name="description" value="{{ old('description') }}" id="description" placeholder="Description" class="@error('description') border-red-500 @enderror px-4 py-1.5 text-gray-600 form-input border-gray-300 dark:border-dark-4 input input--lg w-full border block focus:outline-none focus:border-green-500"></textarea>
+                        @if($errors->first('description'))
+                            <p class="text-red-300 mt-1 font-thin italic">{{ $errors->first('description') }}</p>
+                        @endif
+                    </div>
                     <x-form-input-box label="Contact Number" name="contact_mobile" id="contact_mobile" placeholder="Contact Number"></x-form-input-box>
                     <x-form-input-box label="Contact Email" name="contact_email" id="contact_email" placeholder="Contact Email"></x-form-input-box>
                     @component('components.form-select-options', [

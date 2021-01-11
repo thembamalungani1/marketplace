@@ -14,8 +14,9 @@ class FormInputBox extends Component
      * @param $id
      * @param string $type
      * @param string $placeholder
+     * @param string $class
      */
-    public function __construct(public $label, public $name, public $id, public $type = 'text', public $placeholder = '')
+    public function __construct(public $label, public $name, public $id, public $type = 'text', public $placeholder = '', public $class = '')
     {
         //
     }

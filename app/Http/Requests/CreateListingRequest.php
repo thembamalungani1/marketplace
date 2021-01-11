@@ -27,7 +27,7 @@ class CreateListingRequest extends FormRequest
             'title' => 'required|string|max:255',
             'slug'  => 'string|max:255',
             'price' => 'required|regex:/^\d+(\.\d{1,2})?$/',
-            'description' => 'required|min:50|max:5000',
+            'description' => 'required|min:10|max:5000',
             'contact_email' => 'required|email',
             'contact_mobile' => 'required',
             'currency_id'  => 'required',

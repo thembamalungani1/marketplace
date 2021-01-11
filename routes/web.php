@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\RegistrationController;
 use App\Http\Controllers\ListingController;
 use App\Http\Controllers\SearchController;
@@ -25,8 +25,9 @@ Route::get('/search', [SearchController::class, 'index'])->name('search');
 
 Route::get('/register', [RegistrationController::class, 'index'])->name('show-register');
 Route::post('/register', [RegistrationController::class, 'signup'])->name('create-registration');
-Route::get('/login', [LoginController::class, 'index'])->name('show-login');
-Route::post('/login', [LoginController::class, 'login'])->name('do-login');
+Route::get('/login', [AuthController::class, 'index'])->name('show-login');
+Route::post('/login', [AuthController::class, 'login'])->name('do-login');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
 Route::get('/create-listing', [ListingController::class, 'create'])->name('create-listing');

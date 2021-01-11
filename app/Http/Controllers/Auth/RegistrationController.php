@@ -31,7 +31,7 @@ class RegistrationController extends Controller
         if ($user){
             $authenticationService->auth($user);
 
-            return redirect()->back()->with('message', 'Successfully registered');
+            return redirect()->route('show-search');
         }
 
         return redirect()->back()->with('error', 'Opps, Something fishy happened. We on it!');

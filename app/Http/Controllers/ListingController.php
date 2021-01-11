@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Contracts\IListingService;
-use App\Contracts\ISearchService;
 use App\Http\Requests\CreateListingRequest;
-use App\Http\Requests\SearchRequest;
 use App\Models\Listing;
 use Illuminate\Http\Request;
 
@@ -38,7 +36,7 @@ class ListingController extends Controller
     }
 
     /**
-     * @param IListingService $service
+     * @param IListingService $servicee
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
@@ -47,7 +45,7 @@ class ListingController extends Controller
         $listing = $service->create($request->all());
 
         if ($listing) {
-            return redirect()->route('create-listing')->with('message', 'Success');
+            return redirect()->route('show-listing', ['slug' => $listing->slug])->with('message', 'Listing successfully posted');
         }
 
         return redirect()->route('create-listing')->with('error', 'error while creating listing');
