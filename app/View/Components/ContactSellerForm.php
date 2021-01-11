@@ -9,9 +9,9 @@ class ContactSellerForm extends Component
     /**
      * Create a new component instance.
      *
-     * @return void
+     * @param $listing
      */
-    public function __construct()
+    public function __construct(public $listing)
     {
         //
     }

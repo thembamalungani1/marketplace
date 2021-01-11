@@ -34,6 +34,7 @@
                                     <p class="text-gray-500 overscroll-x-contain">{{ $listing->category_id }}</p>
                                     <div class="float-right">
                                         <p class="text-red-400 align-bottom">{{ $listing->created_at->diffForHumans()  }}</p>
+                                        <p class="text-blue-400 align-bottom"><a href="{{ route('show-listing', ['slug' => $listing->slug]) }}">Contact Seller</a></p>
                                     </div>
                                 </div>
                             </div>
