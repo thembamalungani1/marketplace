@@ -17,6 +17,7 @@
                         </div>
                         <div class="col-span-1 ml-2 bg-gray-200 p-4 sm:col-start-3 shadow-lg bg-opacity-95 border-gray-100">
                             @component('components.contact-seller-form', ['listing' => $listing])
+                            @endcomponent
                         </div>
                         <div class="col-span-3 bg-gray-200 p-10 text-gray-600 mt-4 border border-gray-100 shadow-md bg-opacity-95">
                             <p class="mb-10 break-words">{{ $listing->description }}</p>

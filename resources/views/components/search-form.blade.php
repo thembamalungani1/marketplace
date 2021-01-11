@@ -8,11 +8,7 @@
                         'label' => "",
                         'name'=>"category_id",
                         'id'=>"category_id",
-                        'options' => [
-                            ['label' => 'Category', 'value' => 0],
-                            ['label' => 'Cars', 'value' => 1],
-                            ['label' => 'Furniture', 'value' => 2],
-                        ]
+                        'options' => $categories
                     ])
                     @endcomponent
                 </div>
@@ -23,11 +19,7 @@
                         'label' => "",
                         'name'=>"currency_id",
                         'id'=>"currency_id",
-                        'options' => [
-                            ['label' => 'Currency', 'value' => 0],
-                            ['label' => 'USD', 'value' => 1],
-                            ['label' => 'ZAR', 'value' => 2],
-                        ]
+                        'options' => $currencies
                     ])
                     @endcomponent
                 </div>

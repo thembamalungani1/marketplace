@@ -11,7 +11,7 @@ class ContactSellerForm extends Component
      *
      * @param $listing
      */
-    public function __construct(public $listing)
+    public function __construct(public $listing = null)
     {
         //
     }

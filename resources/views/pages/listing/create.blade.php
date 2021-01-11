@@ -25,20 +25,14 @@
                             'label' => "Currency",
                             'name'=>"currency_id",
                             'id'=>"currency_id",
-                            'options' => [
-                                ['label' => 'ZAR', 'value' => 1],
-                                ['label' => 'USD', 'value' => 2],
-                            ]
+                            'options' => $currencies
                     ])
                     @endcomponent
                     @component('components.form-select-options', [
                             'label' => "Category",
                             'name'=>"category_id",
                             'id'=>"category_id",
-                            'options' => [
-                                ['label' => 'Cars', 'value' => 1],
-                                ['label' => 'Furniture', 'value' => 2],
-                            ]
+                            'options' => $categories
                     ])
                     @endcomponent
                     <input type="submit" value="Post" class="button button--lg bg-light-1 text-white w-full  my-4 py-2 shadow bg-blue-400">

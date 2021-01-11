@@ -1,6 +1,6 @@
 <div>
     <p class="my-2 text-gray-400 font-bold">Contact Seller</p>
-    <form action="{{ route('do-contact') }}" method="post" class="py-0">
+    <form action="/" method="post" class="py-0">
         @csrf
         <input name="listing_slug" type="hidden" value="{{ $listing->slug }}">
         <x-form-input-box label="Full Name" name="fullname" id="fullname" placeholder="Full Name"></x-form-input-box>
