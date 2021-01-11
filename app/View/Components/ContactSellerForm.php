@@ -4,14 +4,14 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class ListingsListItem extends Component
+class ContactSellerForm extends Component
 {
     /**
      * Create a new component instance.
      *
-     * @param $listing
+     * @return void
      */
-    public function __construct(public $listing = null)
+    public function __construct()
     {
         //
     }
@@ -23,6 +23,6 @@ class ListingsListItem extends Component
      */
     public function render()
     {
-        return view('components.listings-list-item');
+        return view('components.contact-seller-form');
     }
 }
