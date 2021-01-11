@@ -2,7 +2,7 @@
     <div>
         <img src="">
         <div>
-            <p>{{ $listing-> }}</p>
+            <p>{{ $listing->title }}</p>
         </div>
-    </div>we
+    </div>
 </div>

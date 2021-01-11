@@ -14,7 +14,6 @@
                 @csrf
                 <x-form-input-box label="Title" name="title" id="title"></x-form-input-box>
                 <x-form-input-box label="Slug" name="slug" id="slug"></x-form-input-box>
-                <x-form-input-box label="Slug" name="slug" id="slug"></x-form-input-box>
                 <x-form-input-box label="Price" name="price" id="price"></x-form-input-box>
                 <x-form-input-box label="Description" name="description" id="description"></x-form-input-box>
                 <x-form-input-box label="Contact Number" name="contact_mobile" id="contact_mobile"></x-form-input-box>
