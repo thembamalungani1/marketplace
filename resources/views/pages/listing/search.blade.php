@@ -2,7 +2,7 @@
 @section('content')
     <div>
         <div>
-            <form action="{{ route('do-search') }}" method="post">
+            <form action="{{ route('search') }}" method="post">
                 @csrf
                 <div>
                     <input name="search" placeholder="search listing">

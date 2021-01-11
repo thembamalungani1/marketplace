@@ -32,6 +32,6 @@ class ListingService implements IListingService
 
     public function findBy($field, $value, $criteria = '='): Listing
     {
-        // TODO: Implement findBy() method.
+        return $this->repository->findBy($field, $value, $criteria);
     }
 }

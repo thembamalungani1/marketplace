@@ -21,22 +21,20 @@ class ListingController extends Controller
         return view('pages.listing.search', ['latest' => Listing::all()]);
     }
 
-    public function doSearch(ISearchService $searchService, SearchRequest $request)
+    /**
+     * @param string $slug
+     * @param IListingService $listingService
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function show(string $slug, IListingService $listingService)
     {
-        $criteria = [];
-        if ($request->input('category_id')) {
-            $criteria = array_merge($criteria, [
-                ['column' => 'category_id', 'condition' => '=', 'value' => $request->input('category_id')]
-            ]);
-        }
-        if ($request->input('search')) {
-            $criteria = array_merge($criteria, [
-                ['column' => 'title', 'condition' => 'LIKE', 'value' => $request->input('search')]
-            ]);
-        }
-        $listings = $searchService->search($criteria);
+        $listing = $listingService->findBy('slug', $slug);
 
-        return view('pages.listing.search', ['results' => $listings]);
+        if ($listing) {
+            return view('pages.listing.show', ['listing' => $listing]);
+        }
+
+        return view('pages.misc.404', ['error', 'Listing not found']);
     }
 
     /**
