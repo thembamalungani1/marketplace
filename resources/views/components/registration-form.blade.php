@@ -1,28 +1,18 @@
-<div>
-    <!-- Be present above all else. - Naval Ravikant -->
-</div><h1>Register</h1>
-<form action="{{ route('create-registration') }}" method="post">
-    @csrf
-    <div>
-        <label for="firstname">First Name</label>
-        <input type="text" name="firstname" id="firstname">
+<div class="items-center justify-center text-gray-400 md:mt-10">
+    <div class="flex justify-center py-1">
+        <x-logo></x-logo>
     </div>
-    <div>
-        <label for="lastname">Last Name</label>
-        <input type="text" name="lastname" id="lastname">
-    </div>
-    <div>
-        <label for="email">Email</label>
-        <input type="text" name="email" id="email">
-    </div>
-    <div>
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password">
-    </div>
-    <div>
-        <label for="password_conformation">Confirm Password</label>
-        <input type="password" name="password_conformation" id="password_conformation">
-    </div>
-    <input type="submit" value="Register">
-</form>
-<a href="{{ route('show-login') }}">Already have a account?</a>
+    @if($error = Session::get('error'))
+        <x-alert message="{{ $error }}"></x-alert>
+    @endif
+    <form action="{{ route('create-registration') }}" method="post">
+        @csrf
+        <x-form-input-box label="First Name" name="firstname" id="firstname" placeholder="First Name"></x-form-input-box>
+        <x-form-input-box label="Last Name" name="lastname" id="lastname" placeholder="Last Name"></x-form-input-box>
+        <x-form-input-box label="Email" name="email" id="email" placeholder="Email"></x-form-input-box>
+        <x-form-input-box type="password" label="Password" name="password" id="password" placeholder="Password"></x-form-input-box>
+        <x-form-input-box type="password" label="Confirm Password" name="password_confirmation" id="password_confirmation" placeholder="Confirm Password"></x-form-input-box>
+        <input type="submit" value="Register" class="button button--lg bg-light-1 text-white w-full xl:mr-3 my-4 py-2 shadow bg-blue-400">
+    </form>
+    <p>Already have an account? You can login <a href="{{ route('show-login') }}" class="text-indigo-400">here</a></p>
+</div>

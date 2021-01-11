@@ -4,18 +4,14 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class FormInputBox extends Component
+class Alert extends Component
 {
     /**
      * Create a new component instance.
      *
-     * @param $label
-     * @param $name
-     * @param $id
-     * @param string $type
-     * @param string $placeholder
+     * @param $message
      */
-    public function __construct(public $label, public $name, public $id, public $type = 'text', public $placeholder = '')
+    public function __construct(public $message)
     {
         //
     }
@@ -27,6 +23,6 @@ class FormInputBox extends Component
      */
     public function render()
     {
-        return view('components.form-input-box');
+        return view('components.alert');
     }
 }

@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegistrationController;
 use App\Http\Controllers\ListingController;
+use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,8 +17,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [ListingController::class, 'index']);
-Route::post('/search', [ListingController::class, 'doSearch'])->name('do-search');
+Route::get('/', function (){
+    return redirect()->route('show-search');
+});
+Route::post('/search', [SearchController::class, 'search'])->name('show-search');
+Route::get('/search', [SearchController::class, 'index'])->name('search');
 
 Route::get('/register', [RegistrationController::class, 'index'])->name('show-register');
 Route::post('/register', [RegistrationController::class, 'signup'])->name('create-registration');
@@ -27,3 +31,5 @@ Route::post('/login', [LoginController::class, 'login'])->name('do-login');
 
 Route::get('/create-listing', [ListingController::class, 'create'])->name('create-listing');
 Route::post('/create-listing', [ListingController::class, 'save'])->name('save-listing');
+
+Route::get('/show-listing/s-{slug}', [ListingController::class, 'show'])->name('show-listing');

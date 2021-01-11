@@ -4,18 +4,14 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class FormInputBox extends Component
+class TopNavBar extends Component
 {
     /**
      * Create a new component instance.
      *
-     * @param $label
-     * @param $name
-     * @param $id
-     * @param string $type
-     * @param string $placeholder
+     * @return void
      */
-    public function __construct(public $label, public $name, public $id, public $type = 'text', public $placeholder = '')
+    public function __construct()
     {
         //
     }
@@ -27,6 +23,6 @@ class FormInputBox extends Component
      */
     public function render()
     {
-        return view('components.form-input-box');
+        return view('components.top-nav-bar');
     }
 }

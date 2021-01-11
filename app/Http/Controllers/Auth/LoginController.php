@@ -20,6 +20,6 @@ class LoginController extends Controller
             return redirect()->back()->with('message', 'Login successful');
         }
 
-        return redirect()->back()->with('error', 'Wrong credentials');
+        return redirect()->back()->with('error', 'Incorrect login details');
     }
 }
