@@ -6,8 +6,6 @@ use App\Contracts\IAuthenticationService;
 use App\Contracts\IRegistrationService;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RegistrationRequest;
-use Illuminate\Http\Request;
-use JetBrains\PhpStorm\NoReturn;
 
 class RegistrationController extends Controller
 {
@@ -31,7 +29,7 @@ class RegistrationController extends Controller
         if ($user){
             $authenticationService->auth($user);
 
-            return redirect()->route('show-search');
+            return redirect()->route('search');
         }
 
         return redirect()->back()->with('error', 'Opps, Something fishy happened. We on it!');

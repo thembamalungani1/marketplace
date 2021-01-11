@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Contracts\IListingService;
+use App\Http\Controllers\Traits\UsesCategories;
+use App\Http\Controllers\Traits\UsesCurrencies;
 use App\Http\Requests\CreateListingRequest;
 use App\Models\Listing;
 use Illuminate\Http\Request;

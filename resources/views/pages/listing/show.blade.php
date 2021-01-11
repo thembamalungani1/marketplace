@@ -8,8 +8,8 @@
                     <div class="grid grid-cols-3">
                         <div class="col-span-2 bg-gray-200 shadow-lg bg-opacity-95 border-gray-100 p-4">
                             <div class="block">
-                                    <p class="float-left text-4xl text-gray-600">{{ $listing->title }}</p>
-                                    <p class="float-right text-4xl text-green-600">{{ $listing->price }}</p>
+                                <p class="float-left text-4xl text-gray-600">{{ $listing->title }}</p>
+                                <p class="float-right text-4xl text-green-600"><span class="font-bold">{{ $listing->currency->acronym }}</span>{{ number_format(doubleval($listing->price), 2) }}</p>
                             </div>
                             <div class="flex justify-center mt-20">
                                 <img src="https://via.placeholder.com/350">
@@ -21,9 +21,9 @@
                         </div>
                         <div class="col-span-3 bg-gray-200 p-10 text-gray-600 mt-4 border border-gray-100 shadow-md bg-opacity-95">
                             <p class="mb-10 break-words">{{ $listing->description }}</p>
-                            <p>Category {{ $listing->category_id }}</p>
-                            <p>Contact Email {{ $listing->contact_email }}</p>
-                            <p>Contact Phone {{ $listing->contact_phone  }}</p>
+                            <div><p class="text-gray-600 font-bold float-left">Category:</p>&nbsp; {{ $listing->category->name }}</div>
+                            <idv><p class="text-gray-600 font-bold float-left">Contact Email:</p>&nbsp; {{ $listing->contact_email }}</idv>
+                            <div><p class="text-gray-600 font-bold float-left">Contact Phone:</p>&nbsp; {{ $listing->contact_mobile  }}</p>
                         </div>
                     </div>
                 </div>

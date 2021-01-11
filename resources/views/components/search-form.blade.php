@@ -1,6 +1,5 @@
 <div>
-    <form action="{{ route('search') }}" method="post">
-        @csrf
+    <form action="{{ route('search') }}" method="get">
         <div class="flex p-4 pb-0 m-4 bg-gray-200 bg-opacity-70 border-l shadow-lg">
             <div class="w-1/4 bg-opacity-100">
                 <div class="block">

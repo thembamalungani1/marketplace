@@ -18,11 +18,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function (){
-    return redirect()->route('show-search');
+    return redirect()->route('search');
 });
-Route::post('/search', [SearchController::class, 'search'])->name('show-search');
-Route::get('/search', [SearchController::class, 'index'])->name('search');
-
+Route::get('/search', [SearchController::class, 'search'])->name('search');
 Route::get('/register', [RegistrationController::class, 'index'])->name('show-register');
 Route::post('/register', [RegistrationController::class, 'signup'])->name('create-registration');
 Route::get('/login', [AuthController::class, 'index'])->name('show-login');

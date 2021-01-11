@@ -16,7 +16,7 @@ class AuthController extends Controller
     public function login(IAuthenticationService  $service, LoginRequest $request)
     {
         if ($service->attempt($request->only(['email', 'password']))){
-            return redirect()->route('show-search');
+            return redirect()->route('search');
         }
 
         return redirect()->back()->with('error', 'Incorrect login details');
@@ -25,6 +25,6 @@ class AuthController extends Controller
     public function logout(IAuthenticationService $service)
     {
         $service->signout();
-        return redirect()->route('show-search');
+        return redirect()->route('search');
     }
 }

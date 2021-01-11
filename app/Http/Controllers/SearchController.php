@@ -3,31 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Contracts\ISearchService;
+use App\Helpers\SearchHelper;
 use App\Http\Requests\SearchRequest;
-use App\Models\Listing;
 
 class SearchController extends Controller
 {
-    public function index()
+    public function search(ISearchService $searchService, SearchRequest $request, SearchHelper $helper)
     {
-        return view('pages.listing.search', ['latest' => Listing::all()]);
-    }
+        $criteria = $helper->buildCriteria($request);
 
-    public function search(ISearchService $searchService, SearchRequest $request)
-    {
-        $criteria = [];
-        if ($request->input('category_id')) {
-            $criteria = array_merge($criteria, [
-                ['column' => 'category_id', 'condition' => '=', 'value' => $request->input('category_id')]
-            ]);
+        if ($criteria) {
+            $listings = $searchService->search($criteria);
+            return view('pages.listing.search', ['results' => $listings]);
         }
-        if ($request->input('search')) {
-            $criteria = array_merge($criteria, [
-                ['column' => 'title', 'condition' => 'LIKE', 'value' => $request->input('search')]
-            ]);
-        }
-        $listings = $searchService->search($criteria);
 
-        return view('pages.listing.search', ['results' => $listings]);
+        return view('pages.listing.search');
     }
 }
