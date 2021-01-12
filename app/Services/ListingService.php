@@ -11,7 +11,6 @@ use App\Models\Listing;
 
 class ListingService implements IListingService
 {
-
     /**
      * ListingService constructor.
      * @param IListingRepository $repository

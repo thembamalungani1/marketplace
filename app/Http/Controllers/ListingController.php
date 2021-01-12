@@ -7,7 +7,9 @@ use App\Http\Controllers\Traits\UsesCategories;
 use App\Http\Controllers\Traits\UsesCurrencies;
 use App\Http\Requests\CreateListingRequest;
 use App\Models\Listing;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use TypeError;
 
 class ListingController extends Controller
 {
@@ -28,28 +30,31 @@ class ListingController extends Controller
      */
     public function show(string $slug, IListingService $listingService)
     {
-        $listing = $listingService->findBy('slug', $slug);
-
-        if ($listing) {
-            return view('pages.listing.show', ['listing' => $listing]);
-        }
-
-        return view('pages.misc.404', ['error', 'Listing not found']);
+       try {
+           $listing = $listingService->findBy('slug', $slug);
+           return view('pages.listing.show', ['listing' => $listing]);
+       } catch (TypeError $e){
+           return view('pages.misc.404', ['error', 'Listing not found']);
+       }
     }
 
     /**
-     * @param IListingService $servicee
-     * @param Request $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @param IListingService $service
+     * @param CreateListingRequest $request
+     * @return RedirectResponse
      */
     public function save(IListingService $service, CreateListingRequest $request)
     {
         $listing = $service->create($request->all());
 
         if ($listing) {
-            return redirect()->route('show-listing', ['slug' => $listing->slug])->with('message', 'Listing successfully posted');
+            return redirect()
+                ->route('show-listing', ['slug' => $listing->slug])
+                ->with('message', 'Listing successfully posted');
         }
 
-        return redirect()->route('create-listing')->with('error', 'error while creating listing');
+        return redirect()
+            ->route('create-listing')
+            ->with('error', 'error while creating listing');
     }
 }
