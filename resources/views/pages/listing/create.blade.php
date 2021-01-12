@@ -1,5 +1,7 @@
 @extends('layouts.main')
-
+@section('title')
+    Create Listing
+@endsection
 @section('content')
     <div class="w-full flex justify-center p-10 align-middle mt-20 md:mt-0">
         <div class="p-10 pt-0 bg-gray-50 shadow-lg text-gray-600 w-1/2">

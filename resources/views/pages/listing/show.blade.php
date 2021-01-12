@@ -1,5 +1,7 @@
 @extends('layouts.main')
-
+@section('title')
+    Listing | {{ substr($listing->title, 0, 20) }}
+@endsection
 @section('content')
     <div class="w-full flex justify-center">
         <div class="w-3/4 flex justify-center">

@@ -1,4 +1,7 @@
 @extends('layouts.main')
+@section('title')
+    Search Listing
+@endsection
 @section('content')
     <div class="w-full flex justify-center p-10 mt-20 md:mt-0 bg">
         <div class="w-3/4 flex justify-center mt-20 md:mt-0 bg">
