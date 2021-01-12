@@ -10,7 +10,7 @@
                     <div class="grid grid-cols-3">
                         <div class="col-span-2 bg-gray-200 shadow-lg bg-opacity-95 border-gray-100 p-4">
                             <div class="block">
-                                <p class="float-left text-4xl text-gray-600">{{ $listing->title }}</p>
+                                <p class="float-left text-4xl text-gray-600">{{ $listing->title }} <span class="block text-lg text-red-500">{{ $listing->created_at->diffForHumans()  }}    </span></p>
                                 <p class="float-right text-4xl text-green-600"><span class="font-bold">{{ $listing->currency->acronym }}</span>{{ number_format(doubleval($listing->price), 2) }}</p>
                             </div>
                             <div class="flex justify-center mt-20">

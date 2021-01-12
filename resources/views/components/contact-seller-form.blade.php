@@ -1,6 +1,6 @@
 <div>
-    <p class="my-2 text-gray-400 font-bold">Contact Seller</p>
-    <form action="/" method="post" class="py-0">
+    <p class="my-2 text-gray-600">Contact <span class="font-bold">{{ $listing->owner->firstname }}</span> </p>
+    <form action="#" method="get" class="py-0">
         @csrf
         <input name="listing_slug" type="hidden" value="{{ $listing->slug }}">
         <x-form-input-box label="Full Name" name="fullname" id="fullname" placeholder="Full Name"></x-form-input-box>

@@ -18,7 +18,7 @@
                         <a href="{{ route('search', ['category_id' => $listing->category->id]) }}">{{ $listing->category->name }}</a>
                     </p>
                     <div class="float-right">
-                        <p class="text-red-400 align-bottom">{{ $listing->created_at->diffForHumans()  }}</p>
+                        <p class="text-red-400 align-bottom">{{ $listing->created_at->diffForHumans() }}</p>
                         <p class="text-blue-400 align-bottom"><a href="{{ route('show-listing', ['slug' => $listing->slug]) }}">Contact Seller</a></p>
                     </div>
                 </div>
