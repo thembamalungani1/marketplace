@@ -7,6 +7,8 @@ This is a simple classifieds website with rudementary functionality. Currency th
 - Searching listing by title and allow filtering by category and currency
 - Viewing a single listing details
 
+See it live [here](https://the-marketplace-tm.herokuapp.com/search)
+
 
 ## Running the project
 The project requires a database which can be configured under `.env` file.
