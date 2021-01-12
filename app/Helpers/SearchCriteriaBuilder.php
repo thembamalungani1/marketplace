@@ -26,7 +26,8 @@ class SearchCriteriaBuilder
 
         if ($request->input('search')) {
             $criteria = array_merge($criteria, [
-                ['column' => 'title', 'condition' => 'LIKE', 'value' => $request->input('search')]
+                ['column' => 'title', 'condition' => 'LIKE', 'value' => '%'.$request->input('search').'%'],
+                ['column' => 'description', 'condition' => 'LIKE', 'value' => '%'.$request->input('search').'%', 'function' => 'orWhere']
             ]);
         }
 

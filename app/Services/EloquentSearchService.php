@@ -6,7 +6,6 @@ namespace App\Services;
 
 use App\Contracts\ISearchService;
 use App\Models\Listing;
-use App\Models\User;
 
 class EloquentSearchService implements ISearchService
 {
@@ -15,9 +14,13 @@ class EloquentSearchService implements ISearchService
     {
         $query = Listing::query();
 
-        foreach ($criteria as $criterion)
-        {
-            $query->where($criterion['column'], $criterion['condition'], $criterion['value']);
+        foreach ($criteria as $criterion) {
+            $function = 'where';
+
+            if(isset($criterion['function'])) {
+                $function = $criterion['function'];
+            }
+            $query->$function($criterion['column'], $criterion['condition'], trim($criterion['value']));
         }
 
         return $query->orderBy('created_at', 'desc')->get();
