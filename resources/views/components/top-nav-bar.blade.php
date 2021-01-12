@@ -7,7 +7,7 @@
     <div class="float-right">
         @guest
             <div class="md:flex items-center px-5">
-                <a href="{{ route('show-login') }}" class="button bg-light-1 text-white shadow-md bg-green-600 py-1.5 px-6">Login</a>
+                <a href="{{ route('login') }}" class="button bg-light-1 text-white shadow-md bg-green-600 py-1.5 px-6">Login</a>
                 <a href="{{ route('show-register') }}" class="button bg-light-1 text-white shadow-md bg-blue-600 py-1.5 px-6 ml-2">Register</a>
             </div>
         @endguest

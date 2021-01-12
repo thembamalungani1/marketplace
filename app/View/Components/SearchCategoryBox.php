@@ -2,18 +2,27 @@
 
 namespace App\View\Components;
 
+use App\Models\Category;
 use Illuminate\View\Component;
 
 class SearchCategoryBox extends Component
 {
+    public $url = '';
+
     /**
      * Create a new component instance.
      *
-     * @return void
+     * @param $title
+     * @param $image
+     * @param $name
+     * @param string $class
      */
-    public function __construct(public $title, public $image, public $class = '')
+    public function __construct(public $title, public $image, public $name, public $class = '')
     {
-        //
+        $category = Category::where('name', $name)->first();
+        if ($category) {
+            $this->url = route('search', ['category_id' => $category->id]);
+        }
     }
 
     /**
