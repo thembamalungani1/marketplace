@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Contracts\ISearchService;
-use App\Helpers\SearchHelper;
+use App\Helpers\SearchCriteriaBuilder;
 use App\Http\Requests\SearchRequest;
 
 class SearchController extends Controller
 {
-    public function search(ISearchService $searchService, SearchRequest $request, SearchHelper $helper)
+    public function search(ISearchService $searchService, SearchRequest $request, SearchCriteriaBuilder $criteriaBuilder)
     {
-        $criteria = $helper->buildCriteria($request);
+        $criteria = $criteriaBuilder->buildFrom($request);
 
         if ($criteria) {
             $listings = $searchService->search($criteria);

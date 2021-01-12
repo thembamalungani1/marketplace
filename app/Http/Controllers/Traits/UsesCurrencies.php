@@ -13,8 +13,10 @@ trait UsesCurrencies
     {
         $storedCurrencies = Currency::all();
         $currencies = [['label' => 'Currency', 'value' => 0]];
+
         foreach ($storedCurrencies as $currency){
-            $item = ['label' => $currency->acronym . ' - ' . $currency->country->name, 'value' => $currency->id];
+            $label = sprintf('%s - %s', $currency->acronym, $currency->country->name);
+            $item = ['label' => $label, 'value' => $currency->id];
             array_push($currencies, $item);
         }
 

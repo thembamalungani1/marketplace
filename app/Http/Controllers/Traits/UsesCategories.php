@@ -13,6 +13,7 @@ trait UsesCategories
     {
         $storedCategories = Category::all();
         $categories = [['label' => 'Category', 'value' => 0]];
+
         foreach ($storedCategories as $category){
             $item = ['label' => $category->name, 'value' => $category->id];
             array_push($categories, $item);

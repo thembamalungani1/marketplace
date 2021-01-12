@@ -6,9 +6,9 @@ namespace App\Helpers;
 
 use Illuminate\Http\Request;
 
-class SearchHelper
+class SearchCriteriaBuilder
 {
-    public function buildCriteria(Request $request)
+    public function buildFrom(Request $request)
     {
         $criteria = [];
 
