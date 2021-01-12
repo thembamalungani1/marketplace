@@ -17,6 +17,12 @@ The project requires a database which can be configured under `.env` file.
 $ php artisan migrate --seed
 ```
 
+#### Building the assests
+
+```console
+$ npm run dev
+```
+
 We do require the seeding for `Currencies` and `Categories
 
 #### Running the app locally
