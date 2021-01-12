@@ -14,5 +14,5 @@
         <x-form-input-box type="password" label="Confirm Password" name="password_confirmation" id="password_confirmation" placeholder="Confirm Password"></x-form-input-box>
         <input type="submit" value="Register" class="button button--lg bg-light-1 text-white w-full xl:mr-3 my-4 py-2 shadow bg-blue-400">
     </form>
-    <p>Already have an account? You can login <a href="{{ route('show-login') }}" class="text-indigo-400">here</a></p>
+    <p>Already have an account? You can login <a href="{{ route('login') }}" class="text-indigo-400">here</a></p>
 </div>
